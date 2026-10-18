@@ -1,0 +1,343 @@
+<!doctype html><html lang="uz"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/><meta name="theme-color" content="#0f172a"/><title>Bek loyiha</title><style>
+:root{font-family:Inter,system-ui,Arial,sans-serif;color:#182235;background:#f3f6fa}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}header{background:#0f172a;color:white;padding:15px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}header small{display:block;color:#9db2cf;font-size:11px;margin-top:2px}.logo{font-weight:800;font-size:21px;letter-spacing:-.7px}.toolbar{display:flex;gap:7px;flex-wrap:wrap;padding:11px 12px;background:white;border-bottom:1px solid #e3e9f1}.btn{border:1px solid #d5deeb;border-radius:10px;background:white;color:#29374a;padding:10px 11px;font-size:13px;font-weight:650}.btn.primary{background:#2563eb;border-color:#2563eb;color:#fff}.btn.active{background:#dbeafe;border-color:#2563eb;color:#1d4ed8}.layout{display:grid;grid-template-columns:310px minmax(0,1fr) 275px;gap:14px;padding:14px;max-width:1600px;margin:auto}.panel{background:white;border:1px solid #e2e9f2;border-radius:15px;padding:15px;box-shadow:0 4px 20px #0f172a08}.panel h3{font-size:15px;margin:0 0 12px}.field{display:flex;flex-direction:column;gap:5px;flex:1;min-width:0}.field label{font-size:11px;color:#64748b;font-weight:650}.field input,.field select{border:1px solid #cbd5e1;padding:9px 10px;border-radius:9px;width:100%;background:white;color:#14243b}.fields{display:flex;gap:8px;margin-bottom:10px}.note{font-size:12px;color:#64748b;line-height:1.5}.pill{background:#eff6ff;color:#1d4ed8;padding:7px 9px;border-radius:9px;font-size:12px;font-weight:700;margin:10px 0}.roomrow{display:flex;gap:8px;align-items:center;padding:10px 7px;border-bottom:1px solid #edf1f6;cursor:pointer}.roomrow.selected{background:#eff6ff;border-radius:8px}.roomrow .nm{flex:1;font-size:13px}.roomrow small{display:block;color:#64748b;margin-top:2px}.roomrow button{padding:5px 8px;border:0;background:#fee2e2;color:#991b1b;border-radius:7px}.canvas-panel{min-width:0;display:flex;flex-direction:column;gap:11px}.canvashead{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}.canvashead h3{margin:0;font-size:15px}.status{font-size:11px;color:#475569}.stage{background-color:#f9fbfe;background-image:linear-gradient(#e6edf5 1px,transparent 1px),linear-gradient(90deg,#e6edf5 1px,transparent 1px);background-size:20px 20px;border:1px solid #dbe5ef;border-radius:12px;height:min(68dvh,700px);min-height:410px;overflow:hidden;touch-action:none;position:relative}.stage svg{display:block;width:100%;height:100%;touch-action:none;user-select:none}.legend{display:flex;flex-wrap:wrap;gap:7px;align-items:center}.tag{font-size:11px;border-radius:8px;padding:6px 8px;background:#f1f5f9;color:#465568}.warn{color:#b45309;background:#fffbeb}.variants{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.variant{border:1px solid #dbe3ee;border-radius:11px;text-align:left;padding:10px 9px;background:#fff;color:#24354d}.variant strong{display:block;font-size:12px}.variant small{display:block;margin-top:4px;color:#64748b;font-size:10px}.variant.selected{border:2px solid #2563eb;background:#eff6ff;padding:9px 8px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}.metric{border-radius:9px;background:#f1f5f9;padding:10px}.metric span{display:block;color:#64748b;font-size:10px}.metric strong{display:block;margin-top:3px;font-size:16px}.bottom{display:none}.hidden{display:none!important}@media(max-width:1020px){.layout{grid-template-columns:255px minmax(0,1fr)}.side-right{grid-column:1/-1}.variants{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:700px){header{padding:12px 14px}.toolbar{padding:8px;gap:5px;overflow-x:auto;flex-wrap:nowrap}.btn{white-space:nowrap;padding:9px;font-size:12px}.layout{display:flex;flex-direction:column;padding:9px;gap:9px}.panel{padding:12px;border-radius:12px}.side-left{order:2}.canvas-panel{order:1}.side-right{order:3}.stage{height:55dvh;min-height:340px}.variants{grid-template-columns:repeat(3,minmax(0,1fr))}.canvashead{gap:5px}.bottom{display:block;font-size:12px;color:#64748b;text-align:center;padding:8px}}
+@media(max-width:700px){body.editor-full header,body.editor-full .side-left,body.editor-full .side-right,body.editor-full .legend,body.editor-full .metrics,body.editor-full .audit-panel,body.editor-full .note.warn,body.editor-full .bottom{display:none!important}body.editor-full .layout{padding:0;gap:0}body.editor-full .canvas-panel{border:0;border-radius:0;padding:0}body.editor-full .stage{height:calc(100dvh - 115px);min-height:200px;border-radius:0}body.editor-full .toolbar{position:sticky;top:0;z-index:10}body.editor-full .canvashead{padding:8px 12px}}.audit-panel{margin-top:9px;padding:12px;background:#f8fafc;border:1px solid #dbe5ef;border-radius:12px;font-size:12px;line-height:1.6}.audit-panel h4{margin:0 0 7px;font-size:13px}.audit-issue{padding:5px 0;border-bottom:1px solid #e2e8f0}.audit-issue:last-child{border:0}.audit-score{font-weight:800;color:#1d4ed8;font-size:19px}.audit-sub{color:#64748b;font-size:11px}.audit-ok{color:#15803d}.audit-bad{color:#b45309}</style></head><body><header><div><div class="logo">⌂ Bek loyiha</div><small>Android uchun uy rejalashtiruvchi · v0.9</small></div><div style="font-size:12px;color:#bfd5f6">● Offline</div></header><div class="toolbar"><button class="btn primary" id="autoplan">✦ 6 variant yaratish</button><button class="btn" id="mode">⇱ Uy chegarasi</button><button class="btn" id="rotate">⟳ Xonani aylantirish</button><button class="btn" id="undo">↶ Bekor qilish</button><button class="btn" id="save">▣ Saqlash</button><button class="btn" id="export">⇩ SVG</button><button class="btn" id="corridor">＋ Qo‘lda yo‘lak qo‘shish</button><button class="btn" id="auditBtn">✓ Rejani tekshirish</button><button class="btn" id="connectDoors" style="display:none" aria-hidden="true">🚪 Eshiklarni moslash</button><button class="btn" id="wallsBtn">▥ Umumiy devorlar</button><button class="btn" id="fullscreen">⛶ To‘liq ekran</button><button class="btn" id="routes">🧭 Yo‘lakni tekshirish</button><button class="btn" id="routeDoors" style="display:none" aria-hidden="true">🚪 Yo‘lak eshiklarini taklif qilish</button><button class="btn" id="wallView">▦ Qalin devorlarni ko‘rsatish</button><button class="btn primary" id="foundationBtn">▤ Poydevor rejasi</button><button class="btn" id="resetZoom">◎ Masshtabni tiklash</button></div><main class="layout"><section class="panel side-left"><h3>Uy parametrlari</h3><div class="fields"><div class="field"><label>Uy eni (m)</label><input id="houseW" type="number" min="2" max="40" step="0.1" value="10"></div><div class="field"><label>Uy bo‘yi (m)</label><input id="houseH" type="number" min="2" max="40" step="0.1" value="15"></div></div><div class="note">Uy chegarasini chizmada ko‘k tutqichdan torting. Barcha o‘lchamlar <b>10 sm (0,1 m)</b> qadamlarda o‘zgaradi.</div><div class="pill" id="houseArea">Bino: 150,0 m²</div><h3 style="margin-top:18px">Xona qo‘shish</h3><div class="field" style="margin-bottom:10px"><label>Xona nomi</label><select id="newName"><option>Mehmonxona</option><option>Yotoqxona</option><option>Oshxona</option><option>Hammom</option><option>Yo‘lak</option><option>Bolalar xonasi</option><option>Garaj</option><option>Ombor</option><option>Ayvon</option></select></div><div class="fields"><div class="field"><label>Eni (m)</label><input id="newW" type="number" min="0.5" step="0.1" value="4"></div><div class="field"><label>Bo‘yi (m)</label><input id="newH" type="number" min="0.5" step="0.1" value="4"></div></div><button class="btn primary" id="addRoom" style="width:100%">+ Xona qo‘shish</button><h3 style="margin-top:20px">Xonalar <span id="count"></span></h3><div id="roomList"></div></section><section class="panel canvas-panel"><div class="canvashead"><h3>2D reja <span id="variantTitle" style="color:#2563eb"></span></h3><div class="status" id="status">Xonani tanlang va suring</div></div><div class="stage" id="stage"><svg id="drawing" xmlns="http://www.w3.org/2000/svg" aria-label="Interaktiv uy rejasi"></svg></div><div class="legend"><span class="tag">● Ko‘k tutqich: 10 sm qadam</span><span class="tag">↔ Xonani tortib surish</span><span class="tag">◎ Ikki barmoq: masshtab va panorama</span><span class="tag">▣ Eshik/deraza: devor tanlash</span></div><div class="metrics"><div class="metric"><span>Uy maydoni</span><strong id="totalArea"></strong></div><div class="metric"><span>Xonalar maydoni</span><strong id="usedArea"></strong></div></div><div class="note warn" id="warnings" style="padding:8px;border-radius:8px"></div><div class="audit-panel" id="auditPanel" aria-live="polite"></div><div class="audit-panel" id="accessPanel" aria-live="polite"></div><div class="audit-panel" id="routePanel" aria-live="polite"></div><div class="audit-panel" id="wallPanel" aria-live="polite"></div></section><section class="panel side-right"><h3>Devor va yo‘lak</h3><div class="fields"><div class="field"><label>Devor qalinligi (sm)</label><input id="wallThickness" type="number" min="10" max="60" step="10" value="20"></div><div class="field"><label>Yo‘lak kengligi (m)</label><input id="corridorWidth" type="number" min="0.8" max="2.4" step="0.1" value="1.2"></div></div><div class="note">Yo‘lak uchun kamida tanlangan kenglikdagi bo‘sh joy kerak. Tekshiruv taxminiy; devor qalinligi loyiha ma’lumotlarida saqlanadi.</div><h3 style="margin-top:16px">🚪 Tashqi kirish — qo‘lda</h3><div class="note">Kirish devori va undagi joyni quyida o‘zingiz belgilang. Dastur eshiklarni avtomatik joylashtirmaydi.</div><div class="fields"><div class="field"><label>Kirish joylashgan devor</label><select id="entranceWall"><option value="s">Pastki</option><option value="n">Yuqori</option><option value="w">Chap</option><option value="e">O‘ng</option></select></div><div class="field"><label>Devor bo‘yicha joyi (%)</label><input id="entrancePos" type="range" min="10" max="90" step="1" value="50" /></div></div><div class="pill" id="entranceLabel">Kirish: pastki devor, 50%</div><h3>6 xil joylashuv varianti</h3><div class="variants" id="variants"></div><p class="note">Har bir variantni tanlang: pastda 100 ballik taxminiy reja tekshiruvi chiqadi. Variantlar boshlang‘ich reja. Dastur xonalar sig‘ishini va ustma-ust tushishini tekshiradi. Variantlar dastlabki evristik rejalar. Umumiy devorlarni aniqlash va eshiklarni juftlash sinov rejimida. Yo‘lak yordamchisi sinov rejimida; arxitektura me’yorlarini avtomatik kafolatlamaydi.</p><hr style="border:0;border-top:1px solid #e5eaf2;margin:18px 0"><h3>Tanlangan xona</h3><div id="selectionEmpty" class="note">Xonani bosing, keyin chetidagi tutqichlarni torting.</div><div id="selectionControls" class="hidden"><div class="field" style="margin-bottom:9px"><label>Nom</label><input id="editName"/></div><div class="fields"><div class="field"><label>Eni (m)</label><input id="editW" type="number" min="0.5" step="0.1"></div><div class="field"><label>Bo‘yi (m)</label><input id="editH" type="number" min="0.5" step="0.1"></div></div><div class="pill" id="roomArea"></div><div class="fields"><div class="field"><label>Eshiklar</label><select id="doors"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div><div class="field"><label>Derazalar</label><select id="windows"><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option></select></div></div><div class="fields"><div class="field"><label>Eshik devori</label><select id="doorWall"><option value="s">Pastki</option><option value="n">Yuqori</option><option value="e">O‘ng</option><option value="w">Chap</option></select></div><div class="field"><label>Deraza devori</label><select id="windowWall"><option value="n">Yuqori</option><option value="s">Pastki</option><option value="e">O‘ng</option><option value="w">Chap</option></select></div></div><div class="fields"><div class="field"><label>Eshik joyi (%) — qo‘lda</label><input id="doorPos" type="range" min="10" max="90" step="5" value="50"></div><div class="field"><label>Deraza joyi (%)</label><input id="windowPos" type="range" min="10" max="90" step="5" value="50"></div></div><div class="note">Eshik va deraza joyini tanlangan devor bo‘ylab suring. Joylashuv loyihada saqlanadi.</div><button class="btn" id="lock" style="width:100%">🔓 Joylashuvni qulflash</button></div></section></main><div class="bottom">Bek loyiha v0.4 · 10 sm sensor qadami</div><div id="foundationModal" class="foundation-backdrop hidden" role="dialog" aria-modal="true" aria-label="Poydevor rejasi"><div class="foundation-sheet"><div class="foundation-head"><strong>▤ Poydevor rejasi · dastlabki sxema</strong><button class="btn" id="foundationClose">✕</button></div><div class="note">Tashqi va ichki devorlar bo‘yicha avtomatik yaratilgan <b>taxminiy poydevor o‘qlari</b>. Bu ishchi konstruktiv loyiha emas.</div><div id="foundationPreview" class="foundation-preview"></div><div id="foundationStats" class="pill"></div><div class="note warn" style="padding:10px;border-radius:9px">Poydevor turi, eni, chuqurligi, beton va armatura o‘lchamlari tuproq geologiyasi, yuklar va muhandis hisobi asosida belgilanadi. Ushbu PDF bo‘yicha qurilishni boshlamang.</div><div class="fields" style="margin-top:10px"><button class="btn primary" id="foundationPdf">⇩ Poydevor rejasini PDF yuklash</button><button class="btn" id="foundationRefresh">↻ Rejani yangilash</button></div></div></div><style>.foundation-backdrop{position:fixed;inset:0;background:#0f172acc;z-index:99;display:flex;align-items:center;justify-content:center;padding:12px}.foundation-sheet{background:white;border-radius:16px;padding:18px;max-width:780px;width:100%;max-height:95dvh;overflow:auto;display:flex;flex-direction:column;gap:12px}.foundation-head{display:flex;justify-content:space-between;align-items:center}.foundation-preview{background:#f8fafc;border:1px solid #cbd5e1;border-radius:10px;max-height:55dvh;overflow:auto}.foundation-preview svg{display:block;width:100%;max-height:50dvh}</style><script>
+(()=>{'use strict';const $=id=>document.getElementById(id),round=x=>Math.round(x*10)/10,clamp=(x,a,b)=>Math.max(a,Math.min(b,x));let data={w:10,h:15,rooms:[{id:1,name:'Mehmonxona',x:0,y:0,w:5,h:4,doors:1,windows:2},{id:2,name:'Oshxona',x:5,y:0,w:4,h:3,doors:1,windows:1},{id:3,name:'Yotoqxona',x:0,y:4,w:4,h:4,doors:1,windows:1},{id:4,name:'Hammom',x:4,y:4,w:2.5,h:2.5,doors:1,windows:0}]};try{const prev=JSON.parse(localStorage.getItem('bek-loyiha-project'));if(prev?.rooms&&prev.w&&prev.h)data=prev}catch{}data.entrance=data.entrance||{wall:'s',pos:50};let routeVisible=false,routeResult=null;let sharedWallsOn=true;let selected=null,houseMode=false,variant=0,gesture=null,history=[],view={ox:0,oy:0,s:1},nextId=Math.max(0,...data.rooms.map(r=>r.id))+1;const colors=['#dbeafe','#d1fae5','#fef3c7','#fce7f3','#ede9fe','#ffedd5','#ccfbf1'];const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));const fmt=n=>Number(n).toFixed(1).replace('.',',');const remember=()=>{history.push(JSON.stringify(data));if(history.length>30)history.shift()};const sr=()=>data.rooms.find(r=>r.id===selected);function fit(){let box=$('stage').getBoundingClientRect(),s=Math.min((box.width-72)/data.w,(box.height-72)/data.h);view={s:Math.max(3,s),ox:(box.width-data.w*s)/2,oy:(box.height-data.h*s)/2}}function points(x,y){return [view.ox+x*view.s,view.oy+y*view.s]};function refresh(){ $('houseW').value=fmt(data.w).replace(',','.');$('houseH').value=fmt(data.h).replace(',','.');$('houseArea').textContent=`Bino: ${fmt(data.w*data.h)} m²`;$('totalArea').textContent=fmt(data.w*data.h)+' m²';let used=data.rooms.reduce((s,r)=>s+r.w*r.h,0);$('usedArea').textContent=fmt(used)+' m²';$('count').textContent='('+data.rooms.length+')';$('roomList').innerHTML=data.rooms.map(r=>`<div class="roomrow ${r.id===selected?'selected':''}" data-id="${r.id}"><div class="nm"><b>${esc(r.name)}</b><small>${fmt(r.w)} × ${fmt(r.h)} m · ${fmt(r.w*r.h)} m²</small></div><button title="Xonani o‘chirish" data-delete="${r.id}">×</button></div>`).join('');$('roomList').querySelectorAll('.roomrow').forEach(el=>el.onclick=e=>{let del=e.target.closest('[data-delete]');if(del){remember();data.rooms=data.rooms.filter(r=>r.id!==+del.dataset.delete);if(selected===+del.dataset.delete)selected=null}else selected=+el.dataset.id;refresh()});let r=sr();$('selectionEmpty').classList.toggle('hidden',!!r);$('selectionControls').classList.toggle('hidden',!r);if(r){$('editName').value=r.name;$('editW').value=r.w;$('editH').value=r.h;$('doors').value=String(r.doors||0);$('windows').value=String(r.windows||0);$('roomArea').textContent=`Xona maydoni: ${fmt(r.w*r.h)} m²`;$('doorWall').value=r.doorWall||'s';$('windowWall').value=r.windowWall||'n';$('doorPos').value=r.doorPos??50;$('windowPos').value=r.windowPos??50;$('lock').textContent=r.locked?'🔒 Joylashuvni ochish':'🔓 Joylashuvni qulflash'}$('mode').classList.toggle('active',houseMode);$('mode').textContent=houseMode?'✓ Uy chegarasi faol':'⇱ Uy chegarasi';$('variantTitle').textContent=variant?'· '+variant+'-variant':'';draw()}
+function planAudit(){
+ const rooms=data.rooms,issues=[];let overlaps=0,outside=0,windowProblems=0,accessProblems=0;
+ const intersects=(a,b)=>Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x)>.02&&Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y)>.02;
+ const shared=(a,b)=>{let eps=.11,v=Math.min(a.y+a.h,b.y+b.h)-Math.max(a.y,b.y),h=Math.min(a.x+a.w,b.x+b.w)-Math.max(a.x,b.x);return (Math.abs(a.x+a.w-b.x)<eps||Math.abs(b.x+b.w-a.x)<eps)&&v>=.8||(Math.abs(a.y+a.h-b.y)<eps||Math.abs(b.y+b.h-a.y)<eps)&&h>=.8};
+ const touchesOutside=(r,wall)=>({n:Math.abs(r.y)<.11,s:Math.abs(r.y+r.h-data.h)<.11,w:Math.abs(r.x)<.11,e:Math.abs(r.x+r.w-data.w)<.11})[wall];
+ const adjacent=(r,wall)=>rooms.filter(o=>o!==r&&shared(r,o)&&({n:Math.abs(o.y+o.h-r.y)<.11,s:Math.abs(r.y+r.h-o.y)<.11,w:Math.abs(o.x+o.w-r.x)<.11,e:Math.abs(r.x+r.w-o.x)<.11})[wall]);
+ rooms.forEach((r,i)=>{
+  if(r.x<-.01||r.y<-.01||r.x+r.w>data.w+.01||r.y+r.h>data.h+.01){outside++;issues.push('⛔ '+r.name+': bino chegarasidan tashqarida')}
+  for(let j=i+1;j<rooms.length;j++)if(intersects(r,rooms[j])){overlaps++;issues.push('⛔ '+r.name+' va '+rooms[j].name+': xonalar ustma-ust')}
+  if((r.windows||0)>0&&!touchesOutside(r,r.windowWall||'n')){windowProblems++;issues.push('⚠ '+r.name+': deraza tanlangan tashqi devorga chiqmagan')}
+  if((r.doors||0)>0&&!touchesOutside(r,r.doorWall||'s')&&!adjacent(r,r.doorWall||'s').length){accessProblems++;issues.push('⚠ '+r.name+': eshik boshqa xona yoki tashqi kirishga ulanmagan')}
+  if((r.doors||0)===0&&r.name!=='Yo‘lak'){accessProblems++;issues.push('⚠ '+r.name+': eshik belgilanmagan')}
+ });
+ // Approximate graph traversal: adjacency alone does not guarantee a valid opening.
+ const nodes=rooms.filter(r=>r.x>=0&&r.y>=0&&r.x+r.w<=data.w+.01&&r.y+r.h<=data.h+.01),connected=new Set();
+ const seeds=nodes.filter(r=>(r.doors||0)>0&&touchesOutside(r,r.doorWall||'s'));
+ seeds.forEach(r=>connected.add(r.id));let changed=true;
+ while(changed){changed=false;nodes.forEach(r=>{if(!connected.has(r.id)&&(r.doors||0)>0&&nodes.some(o=>connected.has(o.id)&&(o.doors||0)>0&&shared(r,o))){connected.add(r.id);changed=true}})}
+ const unconnected=nodes.filter(r=>!connected.has(r.id)&&r.name!=='Yo‘lak');
+ if(!seeds.length)issues.push('⚠ Tashqi kirish eshigi aniqlanmadi');
+ if(unconnected.length)issues.push('⚠ Tashqi kirishga taxminiy bog‘lanmagan xonalar: '+unconnected.map(r=>r.name).slice(0,5).join(', '));
+ let score=Math.max(0,Math.min(100,100-overlaps*22-outside*22-windowProblems*6-accessProblems*8-(seeds.length?0:12)-unconnected.length*5));
+ return {issues,score,overlaps,outside,windowProblems,accessProblems,connected:connected.size,total:rooms.length,allClear:issues.length===0};
+}
+function renderAudit(){let a=planAudit();let el=$('auditPanel');if(!el)return;el.innerHTML='<h4>Reja tahlili <span class="audit-score">'+a.score+'/100</span></h4><div class="audit-sub">Xonalar: '+a.total+' · Taxminiy bog‘langan: '+a.connected+' · Kesishuvlar: '+a.overlaps+'</div>'+ (a.allClear?'<div class="audit-ok">✓ Asosiy geometrik tekshiruvlardan o‘tdi</div>':a.issues.slice(0,7).map(x=>'<div class="audit-issue audit-bad">'+esc(x)+'</div>').join('')+(a.issues.length>7?'<div class="audit-sub">Yana '+(a.issues.length-7)+' ta ogohlantirish</div>':''))+'<div class="audit-sub" style="margin-top:8px">Baholash taxminiy: devor teshigi, yo‘lak kengligi va yong‘in me’yorlarini tasdiqlamaydi.</div>';}
+function warnings(){renderAudit();let msgs=[];for(const r of data.rooms){if(r.x<0||r.y<0||r.x+r.w>data.w+.0001||r.y+r.h>data.h+.0001)msgs.push(r.name+' chegaradan tashqarida');for(const other of data.rooms){if(other.id<=r.id)continue;if(Math.min(r.x+r.w,other.x+other.w)-Math.max(r.x,other.x)>.001&&Math.min(r.y+r.h,other.y+other.h)-Math.max(r.y,other.y)>.001)msgs.push(r.name+' / '+other.name+' ustma-ust')}}$('warnings').textContent=msgs.length?'⚠ '+msgs.slice(0,3).join('; ')+(msgs.length>3?' …':''):'✓ Xonalar chegaraga mos, ustma-ust tushmaydi';return msgs}
+function draw(){let box=$('stage').getBoundingClientRect();$('drawing').setAttribute('viewBox',`0 0 ${box.width} ${box.height}`);let s=view.s,ox=view.ox,oy=view.oy;let svg=`<rect x="${ox}" y="${oy}" width="${data.w*s}" height="${data.h*s}" fill="#fff" fill-opacity=".45" stroke="#1e293b" stroke-width="3"/><text x="${ox+data.w*s/2}" y="${oy-11}" text-anchor="middle" fill="#334155" font-size="13" font-weight="700">${fmt(data.w)} m</text><text x="${ox-13}" y="${oy+data.h*s/2}" text-anchor="middle" fill="#334155" font-size="13" font-weight="700" transform="rotate(-90 ${ox-13} ${oy+data.h*s/2})">${fmt(data.h)} m</text>`;data.rooms.forEach((r,i)=>{let x=ox+r.x*s,y=oy+r.y*s,w=r.w*s,h=r.h*s,sel=selected===r.id;svg+=`<g data-room="${r.id}"><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${colors[i%colors.length]}" stroke="${sel?'#2563eb':'#64748b'}" stroke-width="${sel?3:1.8}"/><text x="${x+w/2}" y="${y+h/2-5}" text-anchor="middle" fill="#1e293b" font-size="${Math.min(13,Math.max(9,w/9))}" font-weight="700" pointer-events="none">${esc(r.name.length>17?r.name.slice(0,15)+'…':r.name)}</text><text x="${x+w/2}" y="${y+h/2+12}" text-anchor="middle" fill="#475569" font-size="11" pointer-events="none">${fmt(r.w)}×${fmt(r.h)} m</text>${r.locked?`<text x="${x+8}" y="${y+15}" font-size="11" pointer-events="none">🔒</text>`:''}`;svg+=openings(r,x,y,w,h);if(sel){const handles=[['e',x+w,y+h/2],['s',x+w/2,y+h],['se',x+w,y+h],['w',x,y+h/2],['n',x+w/2,y],['nw',x,y],['ne',x+w,y],['sw',x,y+h]];handles.forEach(([name,hx,hy])=>svg+=`<circle data-handle="${name}" data-id="${r.id}" cx="${hx}" cy="${hy}" r="8" fill="#2563eb" stroke="#fff" stroke-width="2"/>`) }svg+='</g>'});if(houseMode){[['houseE',ox+data.w*s,oy+data.h*s/2],['houseS',ox+data.w*s/2,oy+data.h*s],['houseSE',ox+data.w*s,oy+data.h*s]].forEach(([name,x,y])=>svg+=`<circle data-handle="${name}" cx="${x}" cy="${y}" r="11" fill="#1d4ed8" stroke="white" stroke-width="3"/>`)}svg+=drawSharedWalls();svg+=drawEntryAndRoutes();$('drawing').innerHTML=svg;warnings();renderAccess()}
+
+function openings(r,x,y,w,h){
+  let markup='';
+  function segment(wall,pos,width){
+    let t=Math.max(.1,Math.min(.9,(+pos||50)/100)),vertical=wall==='e'||wall==='w';
+    let len=vertical?h:w, half=Math.min(width*view.s/2,len*.22),p=len*t;
+    if(vertical){let xx=wall==='e'?x+w:x;return [xx,y+p-half,xx,y+p+half]}
+    let yy=wall==='s'?y+h:y;return [x+p-half,yy,x+p+half,yy]
+  }
+  for(let i=0;i<Math.min(3,r.doors||0);i++){
+    let wall=r.doorWall||'s',pos=(r.doorPos??50)+(i-(Math.min(3,r.doors||0)-1)/2)*18;
+    let [x1,y1,x2,y2]=segment(wall,pos,.85);
+    markup+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#fff" stroke-width="7" pointer-events="none"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#a16207" stroke-width="2" stroke-dasharray="4 3" pointer-events="none"/>`;
+  }
+  for(let i=0;i<Math.min(3,r.windows||0);i++){
+    let wall=r.windowWall||'n',pos=(r.windowPos??50)+(i-(Math.min(3,r.windows||0)-1)/2)*18;
+    let [x1,y1,x2,y2]=segment(wall,pos,1.15);
+    markup+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#f8fafc" stroke-width="7" pointer-events="none"/><line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#0284c7" stroke-width="4" pointer-events="none"/>`;
+  }
+  return markup;
+}
+// Ikki barmoq: masshtab va chizmani bir vaqtning o‘zida siljitish.
+const touchPoints=new Map(); let pinch=null;
+const stage=$('stage');
+function distance(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+function center(a,b){return{x:(a.x+b.x)/2,y:(a.y+b.y)/2}}
+function screenPoint(e){let q=stage.getBoundingClientRect();return{x:e.clientX-q.left,y:e.clientY-q.top}}
+function pinchSnapshot(){if(touchPoints.size!==2)return;let ps=[...touchPoints.values()],m=center(ps[0],ps[1]);pinch={distance:Math.max(1,distance(ps[0],ps[1])),m,scale:view.s,ox:view.ox,oy:view.oy};gesture=null}
+stage.addEventListener('pointerdown',e=>{if(e.pointerType!=='touch')return;touchPoints.set(e.pointerId,screenPoint(e));if(touchPoints.size===2){pinchSnapshot();e.stopImmediatePropagation();e.preventDefault()}},true);
+stage.addEventListener('pointermove',e=>{if(e.pointerType!=='touch'||!touchPoints.has(e.pointerId))return;touchPoints.set(e.pointerId,screenPoint(e));if(touchPoints.size>=2&&pinch){let ps=[...touchPoints.values()].slice(0,2),m=center(ps[0],ps[1]);let ns=clamp(pinch.scale*distance(ps[0],ps[1])/pinch.distance,4,160);let wx=(pinch.m.x-pinch.ox)/pinch.scale,wy=(pinch.m.y-pinch.oy)/pinch.scale;view.s=ns;view.ox=m.x-wx*ns;view.oy=m.y-wy*ns;draw();e.preventDefault();e.stopImmediatePropagation()}},true);
+for(const name of ['pointerup','pointercancel'])stage.addEventListener(name,e=>{if(!touchPoints.has(e.pointerId))return;touchPoints.delete(e.pointerId);if(pinch){gesture=null;pinch=null;e.stopImmediatePropagation()}},true);
+$('resetZoom').onclick=()=>{fit();refresh();$('status').textContent='Masshtab tiklandi'};
+for(const [id,key] of [['doorWall','doorWall'],['windowWall','windowWall'],['doorPos','doorPos'],['windowPos','windowPos']]){
+  $(id).addEventListener(id.endsWith('Pos')?'input':'change',()=>{let r=sr();if(!r)return;r[key]=id.endsWith('Pos')?+$(id).value:$(id).value;draw();localStorage.setItem('bek-loyiha-project',JSON.stringify(data))});
+}
+// Yaroqli bo‘sh to‘rtburchak bo‘lsa, oddiy yo‘lak joylashtiradi.
+$('corridor').onclick=()=>{
+  const width=1.2, candidates=[];
+  for(let axis=0;axis<2;axis++)for(let l=3;l<=Math.min(10,axis?data.w:data.h)+.001;l+=.5){
+    let ww=axis?l:width,hh=axis?width:l;
+    for(let y=0;y<=data.h-hh+.001;y+=.5)for(let x=0;x<=data.w-ww+.001;x+=.5){
+      if(data.rooms.some(r=>x<r.x+r.w-.001&&x+ww>r.x+.001&&y<r.y+r.h-.001&&y+hh>r.y+.001))continue;
+      let adj=data.rooms.reduce((n,r)=>n+((Math.abs(r.x+r.w-x)<.11||Math.abs(x+ww-r.x)<.11)&&Math.min(y+hh,r.y+r.h)-Math.max(y,r.y)>.5||(Math.abs(r.y+r.h-y)<.11||Math.abs(y+hh-r.y)<.11)&&Math.min(x+ww,r.x+r.w)-Math.max(x,r.x)>.5?1:0),0);
+      candidates.push({x:round(x),y:round(y),w:round(ww),h:round(hh),score:adj*100+l});
+    }
+  }
+  candidates.sort((a,b)=>b.score-a.score);
+  if(!candidates.length){$('status').textContent='⚠ Yo‘lak uchun bo‘sh maydon topilmadi';alert('Yo‘lak uchun yetarli bo‘sh to‘rtburchak yo‘q. Xonalarni qayta joylashtiring.');return}
+  let p=candidates[0];remember();let r={id:nextId++,name:'Yo‘lak',...p,doors:0,windows:0,locked:false};delete r.score;data.rooms.push(r);selected=r.id;refresh();$('status').textContent='Yo‘lak qo‘shildi; eshiklarni unga moslang';
+};
+
+const names=['Ixcham','Qulay','Markaziy yo‘lak','Zonalarga ajratilgan','Yorug‘likka mos','Erkin reja'];function variantsUI(){$('variants').innerHTML=names.map((name,i)=>`<button class="variant ${variant===i+1?'selected':''}" data-variant="${i+1}"><strong>${i+1}. ${name}</strong><small>${['Kam joy isrofi','Qulay kirish','Yo‘lak uchun joy','Xonalar guruhlangan','Tashqi devor ustuvor','Boshqa tartib'][i]}</small></button>`).join('');$('variants').querySelectorAll('button').forEach(b=>b.onclick=()=>auto(+b.dataset.variant))}
+function auto(v){remember();variant=v;let arr=[...data.rooms].filter(r=>!r.locked);let fixed=data.rooms.filter(r=>r.locked);if(v===1)arr.sort((a,b)=>b.w*b.h-a.w*a.h);if(v===2)arr.sort((a,b)=>b.h-a.h);if(v===3)arr.sort((a,b)=>a.w-b.w);if(v===4)arr.sort((a,b)=>a.name.localeCompare(b.name));if(v===5)arr.sort((a,b)=>b.w-a.w);if(v===6)arr.reverse();let step=.1;let occupancy=(r,x,y)=>fixed.some(o=>x<o.x+o.w-.001&&x+r.w>o.x+.001&&y<o.y+o.h-.001&&y+r.h>o.y+.001);let placed=[...fixed];for(let r of arr){let found=false;let attempts=[];for(let y=0;y<=data.h-r.h+.001;y+=step){for(let x=0;x<=data.w-r.w+.001;x+=step){let tx=round(x),ty=round(y);if(!occupancy(r,tx,ty)&&!placed.some(o=>tx<o.x+o.w-.001&&tx+r.w>o.x+.001&&ty<o.y+o.h-.001&&ty+r.h>o.y+.001)){attempts.push({x:tx,y:ty});if(attempts.length>20000)break}}if(attempts.length>20000)break}if(attempts.length){let chosen;switch(v){case 2:chosen=attempts.reduce((a,b)=>(Math.abs(b.x-data.w/2)+Math.abs(b.y-data.h/2))<(Math.abs(a.x-data.w/2)+Math.abs(a.y-data.h/2))?b:a);break;case 3:chosen=attempts.reduce((a,b)=>Math.abs(b.x-(data.w/2-r.w/2))<Math.abs(a.x-(data.w/2-r.w/2))?b:a);break;case 4:chosen=attempts[attempts.length-1];break;case 5:chosen=attempts.reduce((a,b)=>b.x>a.x?b:a);break;case 6:chosen=attempts[Math.floor(attempts.length/2)];break;default:chosen=attempts[0]}r.x=chosen.x;r.y=chosen.y;found=true}if(!found){r.x=round(data.w+.3);r.y=0}placed.push(r)}selected=null;fit();variantsUI();refresh();$('status').textContent='Variant '+v+' · tahrirlash mumkin'}
+function eventLocal(e){let bb=$('drawing').getBoundingClientRect();return{x:(e.clientX-bb.left)*($('drawing').viewBox.baseVal.width/bb.width),y:(e.clientY-bb.top)*($('drawing').viewBox.baseVal.height/bb.height)}}function start(e){if(e.button!==undefined&&e.button!==0)return;let p=eventLocal(e),t=e.target,handle=t.getAttribute('data-handle'),roomNode=t.closest('[data-room]'),id=+(t.getAttribute('data-id')||roomNode?.getAttribute('data-room')||0);if(houseMode&&handle?.startsWith('house')){remember();gesture={type:handle,start:p,orig:{...data},moved:false}}else if(id){let r=data.rooms.find(z=>z.id===id);if(!r)return;selected=id;if(handle&&!r.locked){remember();gesture={type:'resize',handle,start:p,orig:{...r},id,moved:false}}else if(!r.locked){remember();gesture={type:'move',start:p,orig:{...r},id,moved:false}}else gesture=null}else{selected=null;gesture={type:'pan',start:p,ox:view.ox,oy:view.oy}}$('drawing').setPointerCapture(e.pointerId);refresh();e.preventDefault()}
+function move(e){if(!gesture)return;let p=eventLocal(e),dx=round((p.x-gesture.start.x)/view.s),dy=round((p.y-gesture.start.y)/view.s),g=gesture;if(g.type==='pan'){view.ox=g.ox+p.x-g.start.x;view.oy=g.oy+p.y-g.start.y;draw();return}if(g.type.startsWith('house')){if(g.type.includes('E'))data.w=round(clamp(g.orig.w+dx,2,40));if(g.type.includes('S'))data.h=round(clamp(g.orig.h+dy,2,40))}else{let r=data.rooms.find(z=>z.id===g.id);if(!r)return;if(g.type==='move'){r.x=round(clamp(g.orig.x+dx,0,40));r.y=round(clamp(g.orig.y+dy,0,40))}else{let z=g.handle;let left=g.orig.x,right=g.orig.x+g.orig.w,top=g.orig.y,bottom=g.orig.y+g.orig.h;if(z.includes('e'))right=Math.max(left+.5,right+dx);if(z.includes('w'))left=Math.min(right-.5,left+dx);if(z.includes('s'))bottom=Math.max(top+.5,bottom+dy);if(z.includes('n'))top=Math.min(bottom-.5,top+dy);r.x=round(left);r.y=round(top);r.w=round(right-left);r.h=round(bottom-top)}}g.moved=true;refresh();$('status').textContent=g.type.startsWith('house')?`Uy: ${fmt(data.w)} × ${fmt(data.h)} m`:sr()?`${sr().name}: ${fmt(sr().w)} × ${fmt(sr().h)} m · ${fmt(sr().w*sr().h)} m²`:''}
+$('drawing').addEventListener('pointerdown',start);$('drawing').addEventListener('pointermove',move);$('drawing').addEventListener('pointerup',()=>{gesture=null;localStorage.setItem('bek-loyiha-project',JSON.stringify(data))});$('drawing').addEventListener('pointercancel',()=>gesture=null);$('houseW').onchange=()=>{remember();data.w=round(clamp(+$('houseW').value||10,2,40));fit();refresh()};$('houseH').onchange=()=>{remember();data.h=round(clamp(+$('houseH').value||15,2,40));fit();refresh()};$('addRoom').onclick=()=>{let w=round(+$('newW').value),h=round(+$('newH').value);if(w<.5||h<.5)return alert('Xona o‘lchami kamida 0,5 m bo‘lsin');remember();let r={id:nextId++,name:$('newName').value,x:0,y:0,w,h,doors:1,windows:1};data.rooms.push(r);selected=r.id;refresh()};$('mode').onclick=()=>{houseMode=!houseMode;selected=null;refresh()};$('rotate').onclick=()=>{let r=sr();if(!r||r.locked)return;remember();[r.w,r.h]=[r.h,r.w];refresh()};$('undo').onclick=()=>{if(!history.length)return;data=JSON.parse(history.pop());selected=null;fit();refresh()};$('save').onclick=()=>{localStorage.setItem('bek-loyiha-project',JSON.stringify(data));$('status').textContent='✓ Telefonda saqlandi'};$('export').onclick=()=>{let clone=$('drawing').cloneNode(true);clone.querySelectorAll('[data-handle]').forEach(x=>x.remove());clone.setAttribute('xmlns','http://www.w3.org/2000/svg');let src=new XMLSerializer().serializeToString(clone),blob=new Blob([src],{type:'image/svg+xml'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='bek-loyiha-reja.svg';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};$('autoplan').onclick=()=>auto(1);$('auditBtn').onclick=()=>{renderAudit();$('auditPanel').scrollIntoView({behavior:'smooth',block:'nearest'})};for(const [id,key] of [['editName','name'],['editW','w'],['editH','h'],['doors','doors'],['windows','windows']])$(id).onchange=()=>{let r=sr();if(!r)return;remember();let val=$(id).value;r[key]=key==='name'?val:key==='doors'||key==='windows'?+val:round(Math.max(.5,+val||.5));refresh()};$('lock').onclick=()=>{let r=sr();if(r){r.locked=!r.locked;refresh()}};window.addEventListener('resize',()=>{fit();draw()});
+// v0.4: geometrik umumiy devorlar va eshik o'qlarini tekshirish.
+const walls=['n','e','s','w'];
+function commonBoundary(a,b){
+ const eps=.105;
+ const vy0=Math.max(a.y,b.y),vy1=Math.min(a.y+a.h,b.y+b.h);
+ const hx0=Math.max(a.x,b.x),hx1=Math.min(a.x+a.w,b.x+b.w);
+ if(vy1-vy0>=.9){
+  if(Math.abs(a.x+a.w-b.x)<eps)return{a:'e',b:'w',axis:'v',coordinate:a.x,start:vy0,end:vy1};
+  if(Math.abs(b.x+b.w-a.x)<eps)return{a:'w',b:'e',axis:'v',coordinate:a.x,start:vy0,end:vy1};
+ }
+ if(hx1-hx0>=.9){
+  if(Math.abs(a.y+a.h-b.y)<eps)return{a:'s',b:'n',axis:'h',coordinate:a.y,start:hx0,end:hx1};
+  if(Math.abs(b.y+b.h-a.y)<eps)return{a:'n',b:'s',axis:'h',coordinate:a.y,start:hx0,end:hx1};
+ }
+ return null;
+}
+function boundaryDoors(a,b,wall){
+ const getCoordinate=(r,side)=>side==='n'||side==='s'?r.x+(r.w*(r.doorPos??50)/100):r.y+(r.h*(r.doorPos??50)/100);
+ return a.doors>0&&b.doors>0&&a.doorWall===wall.a&&b.doorWall===wall.b&&
+ Math.abs(getCoordinate(a,wall.a)-getCoordinate(b,wall.b))<=.45&&
+ getCoordinate(a,wall.a)>=wall.start+.3&&getCoordinate(a,wall.a)<=wall.end-.3;
+}
+function graphAccess(){
+ const edges=[],invalid=[];
+ for(let i=0;i<data.rooms.length;i++)for(let j=i+1;j<data.rooms.length;j++){
+  const a=data.rooms[i],b=data.rooms[j],wall=commonBoundary(a,b);
+  if(wall)edges.push({a,b,wall,linked:boundaryDoors(a,b,wall)});
+ }
+ const exterior=r=>{
+  let side=r.doorWall||'s';
+  return r.doors>0&&({n:Math.abs(r.y)<.105,s:Math.abs(r.y+r.h-data.h)<.105,e:Math.abs(r.x+r.w-data.w)<.105,w:Math.abs(r.x)<.105})[side];
+ };
+ const accessible=new Set(data.rooms.filter(exterior).map(r=>r.id));
+ // A corridor is only traversable if both sides actually have aligned openings.
+ let changed=true;
+ while(changed){changed=false;for(let e of edges)if(e.linked){
+  if(accessible.has(e.a.id)&&!accessible.has(e.b.id)){accessible.add(e.b.id);changed=true}
+  if(accessible.has(e.b.id)&&!accessible.has(e.a.id)){accessible.add(e.a.id);changed=true}
+ }}
+ return{edges,accessible,missing:data.rooms.filter(r=>!accessible.has(r.id))};
+}
+function drawSharedWalls(){
+ if(!sharedWallsOn)return'';
+ let s=view.s,ox=view.ox,oy=view.oy,result='';
+ for(const e of graphAccess().edges){
+  const t=e.wall,coord= t.coordinate*s+(t.axis==='v'?ox:oy),p=t.start*s+(t.axis==='v'?oy:ox),q=t.end*s+(t.axis==='v'?oy:ox);
+  const coords=t.axis==='v'?`x1="${coord}" y1="${p}" x2="${coord}" y2="${q}"`:`x1="${p}" y1="${coord}" x2="${q}" y2="${coord}"`;
+  result+=`<line ${coords} stroke="${e.linked?'#15803d':'#e11d48'}" stroke-width="3" stroke-dasharray="6 5" pointer-events="none"/>`;
+ }
+ return result;
+}
+function renderAccess(){
+ let a=graphAccess(),valid=a.edges.filter(e=>e.linked).length;
+ $('accessPanel').innerHTML=`<h4>🚪 Xonalar orasidagi bog‘lanish</h4><div class="audit-sub">Yashil chiziq: ikki tomonlama mos eshik · Qizil: umumiy devor, eshiklar mos emas</div><div>Umumiy devor: <b>${a.edges.length}</b> · Mos eshik: <b>${valid}</b> · Kirish yo‘li topilgan xona: <b>${a.accessible.size}/${data.rooms.length}</b></div>${a.missing.length?`<div class="audit-bad">⚠ Tashqi kirishdan ulanmagan: ${a.missing.map(r=>esc(r.name)).join(', ')}</div>`:'<div class="audit-ok">✓ Barcha xonalarga eshik orqali yo‘l mavjud (geometrik tekshiruv)</div>'}<div class="audit-sub">Natija faqat birinchi eshikning devor va joy koordinatalarini hisobga oladi; qurilish me’yorlari tekshirilmagan.</div>`;
+}
+$('wallsBtn').onclick=()=>{sharedWallsOn=!sharedWallsOn;$('wallsBtn').classList.toggle('active',sharedWallsOn);draw()};
+$('connectDoors').onclick=()=>{return; /* Avtomatik eshik joylashtirish o‘chirilgan */
+ const connections=graphAccess().edges;
+ // Prioritize rooms without an assigned shared-wall door; do not destroy an existing valid pair.
+ const assigned=new Set(); let changed=0;
+ remember();
+ connections.sort((a,b)=>(Number(a.a.name==='Yo‘lak'||a.b.name==='Yo‘lak')-Number(b.a.name==='Yo‘lak'||b.b.name==='Yo‘lak'))*-1);
+ for(const e of connections){
+  let {a,b,wall}=e;if(assigned.has(a.id)||assigned.has(b.id)||e.linked||a.locked||b.locked)continue;
+  let otherValid=connections.some(t=>t.linked&&(t.a.id===a.id||t.b.id===a.id||t.a.id===b.id||t.b.id===b.id));
+  if(otherValid)continue;
+  const pivot=round((wall.start+wall.end)/2);
+  for(const [r,side] of [[a,wall.a],[b,wall.b]]){
+   let pos=(side==='n'||side==='s')?(pivot-r.x)/r.w*100:(pivot-r.y)/r.h*100;
+   r.doorWall=side;r.doorPos=Math.round(clamp(pos,10,90)/5)*5;r.doors=Math.max(1,r.doors||0);
+   assigned.add(r.id);
+  }
+  changed++;
+ }
+ refresh();localStorage.setItem('bek-loyiha-project',JSON.stringify(data));
+ $('status').textContent=changed?`✓ ${changed} ta qo‘shni xona juftligining eshiklari moslandi`:'Moslashtiriladigan yangi juftlik topilmadi';
+};
+
+
+// v0.5: approximate free-space routing from a configurable external entrance.
+const entrySides={n:'Yuqori',s:'Pastki',e:'O‘ng',w:'Chap'};
+function entrancePoint(){const t=clamp((data.entrance?.pos||50)/100,.1,.9),side=data.entrance?.wall||'s';return side==='n'?{x:data.w*t,y:0}:side==='s'?{x:data.w*t,y:data.h}:side==='w'?{x:0,y:data.h*t}:{x:data.w,y:data.h*t}}
+function drawEntryAndRoutes(){let p=entrancePoint(),[ex,ey]=points(p.x,p.y);let out=`<circle cx="${ex}" cy="${ey}" r="9" fill="#f97316" stroke="#fff" stroke-width="3"/><text x="${ex+11}" y="${ey-12}" font-size="12" fill="#c2410c" font-weight="700">Kirish</text>`;if(routeVisible&&routeResult)for(const line of routeResult.paths){out+=`<polyline points="${line.path.map(c=>points(c.x,c.y).join(',')).join(' ')}" fill="none" stroke="#f97316" stroke-width="${Math.max(2,view.s*(data.corridorWidth||1.2))}" stroke-linejoin="round" stroke-linecap="round" opacity=".44" pointer-events="none"/>`;}return out}
+function findRoutes(){
+ // Resolution is 0.1 m: all geometry is snapped to 10 cm.
+ const step=.1,nx=Math.max(1,Math.floor(data.w/step)),ny=Math.max(1,Math.floor(data.h/step));
+ const width=clamp(Number(data.corridorWidth)||1.2,.8,2.4),radius=width/2,wallMargin=clamp(Number(data.wallThickness)||.2,.1,.6)/2;
+ const ex=entrancePoint(),point=(i,j)=>({x:(i+.5)*step,y:(j+.5)*step});
+ const inside=(x,y,r)=>x>=r.x-.0001&&x<=r.x+r.w+.0001&&y>=r.y-.0001&&y<=r.y+r.h+.0001;
+ const distanceToRect=(x,y,r)=>Math.hypot(Math.max(r.x-x,0,x-r.x-r.w),Math.max(r.y-y,0,y-r.y-r.h));
+ const key=(i,j)=>j*nx+i, valid=(i,j)=>i>=0&&j>=0&&i<nx&&j<ny;
+ const clearance=new Uint8Array(nx*ny);
+ for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){
+  const {x,y}=point(i,j);if(x+1e-6<radius||y+1e-6<radius||x+radius>data.w+1e-6||y+radius>data.h+1e-6)continue;
+  if(data.rooms.some(r=>r.name!=='Yo‘lak'&&distanceToRect(x,y,r)<radius+wallMargin-1e-6))continue;
+  clearance[key(i,j)]=1;
+ }
+ // The entrance is on a boundary; project it to a safe corridor center nearby.
+ let start=null,best=Infinity;
+ for(let j=0;j<ny;j++)for(let i=0;i<nx;i++)if(clearance[key(i,j)]){
+  const pt=point(i,j),d=Math.hypot(pt.x-ex.x,pt.y-ex.y);
+  if(d<best){best=d;start={i,j}}
+ }
+ const names=data.rooms.filter(r=>r.name!=='Yo‘lak').map(r=>r.name);
+ if(!start||best>Math.max(1.5,width*1.6))return {paths:[],missing:names,note:'Kirish oldida tanlangan kenglikdagi xavfsiz bo‘sh yo‘lak topilmadi.',width};
+ const prev=new Int32Array(nx*ny);prev.fill(-2);const q=new Int32Array(nx*ny);let head=0,tail=0,sk=key(start.i,start.j);q[tail++]=sk;prev[sk]=-1;
+ while(head<tail){const k=q[head++],i=k%nx,j=Math.floor(k/nx);
+ for(const [di,dj] of [[1,0],[-1,0],[0,1],[0,-1]]){const ni=i+di,nj=j+dj;if(!valid(ni,nj))continue;const nk=key(ni,nj);if(!clearance[nk]||prev[nk]!==-2)continue;prev[nk]=k;q[tail++]=nk}}
+ const paths=[],missing=[];
+ for(const r of data.rooms){if(r.name==='Yo‘lak')continue;
+  let closest=-1,dist=Infinity,side='';
+  for(let u=0;u<tail;u++){
+   const k=q[u],pt=point(k%nx,Math.floor(k/nx));
+   for(const [wall,d,along] of [['w',Math.abs(pt.x-r.x),pt.y-r.y],['e',Math.abs(pt.x-(r.x+r.w)),pt.y-r.y],['n',Math.abs(pt.y-r.y),pt.x-r.x],['s',Math.abs(pt.y-(r.y+r.h)),pt.x-r.x]]){
+    const size=(wall==='w'||wall==='e')?r.h:r.w;
+    if(along<.45||along>size-.45||d>radius+step*1.8)continue;
+    const fit=d+Math.abs(along-size/2)*.002;if(fit<dist){closest=k;dist=fit;side=wall}
+   }
+  }
+  if(closest<0){missing.push(r.name);continue}
+  const path=[];let cur=closest;while(cur>=0){path.push(point(cur%nx,Math.floor(cur/nx)));cur=prev[cur]}path.reverse();paths.push({name:r.name,path,side});
+ }
+ return {paths,missing,width,note:`${width.toFixed(1)} m kenglikdagi bo‘sh yo‘laklar ${Number(data.wallThickness*100).toFixed(0)} sm devor qalinligi bilan 10 sm to‘rda tekshirildi. Xonaga yaqin yo‘l topilishi hali devorda haqiqiy eshik borligini anglatmaydi.`};
+}
+function updateRoutes(){routeResult=findRoutes();routeVisible=true;let r=routeResult;$('routePanel').innerHTML=`<h4>🧭 Aqlli yo‘lak — kenglik tekshiruvi</h4><div class="audit-ok">Yo‘l yetadigan xonalar: ${r.paths.length} ta · kengligi ${r.width.toFixed(1)} m</div>${r.missing.length?`<div class="audit-bad">Yo‘l topilmadi: ${r.missing.map(esc).join(', ')}</div>`:''}<div class="audit-sub">${esc(r.note)}</div>`;draw()}
+function setEntrance(){data.entrance={wall:$('entranceWall').value,pos:Number($('entrancePos').value)};$('entranceLabel').textContent=`Kirish: ${entrySides[data.entrance.wall]} devor, ${data.entrance.pos}%`;if(routeVisible)updateRoutes();else draw()}
+data.wallThickness=Number(data.wallThickness)||.2;data.corridorWidth=Number(data.corridorWidth)||1.2;
+$('wallThickness').value=Math.round(data.wallThickness*100);$('corridorWidth').value=data.corridorWidth;
+$('wallThickness').onchange=()=>{remember();data.wallThickness=clamp(Math.round((Number($('wallThickness').value)||20)/10)*.1,.1,.6);$('wallThickness').value=Math.round(data.wallThickness*100);refresh()};
+$('corridorWidth').onchange=()=>{remember();data.corridorWidth=round(clamp(Number($('corridorWidth').value)||1.2,.8,2.4));$('corridorWidth').value=data.corridorWidth;if(routeVisible)updateRoutes();else draw()};
+$('entranceWall').value=data.entrance.wall;$('entrancePos').value=data.entrance.pos;
+$('entranceWall').onchange=()=>{remember();setEntrance()};$('entrancePos').onchange=()=>{remember();setEntrance()};$('entrancePos').oninput=setEntrance;setEntrance();
+$('routes').onclick=()=>{if(routeVisible){routeVisible=false;$('routePanel').innerHTML='<div class="note">Yo‘lak ko‘rinishi o‘chirildi.</div>';draw()}else updateRoutes()};
+$('fullscreen').onclick=()=>{document.body.classList.toggle('editor-full');$('fullscreen').textContent=document.body.classList.contains('editor-full')?'⊟ Oddiy ko‘rinish':'⛶ To‘liq ekran';requestAnimationFrame(()=>{fit();draw()})};
+// Refresh the analysis after geometry changes, but avoid stale suggested paths.
+const oldDraw=draw;draw=function(){if(routeVisible)routeResult=findRoutes();oldDraw()};
+
+
+// v0.7: Rooms are treated as outer rectangles; inner dimensions conservatively
+// subtract a full wall thickness on every axis. These figures are estimates.
+let thickWallsVisible=false;
+function innerMetrics(r){const t=clamp(Number(data.wallThickness)||.2,.1,.6);return {width:Math.max(0,r.w-2*t),height:Math.max(0,r.h-2*t),area:Math.max(0,r.w-2*t)*Math.max(0,r.h-2*t)};}
+function renderWallAccounting(){
+ const el=$('wallPanel');if(!el)return;
+ const total=data.rooms.reduce((z,r)=>z+innerMetrics(r).area,0);
+ const gross=data.rooms.reduce((z,r)=>z+r.w*r.h,0);
+ let bad=data.rooms.filter(r=>innerMetrics(r).width<.5||innerMetrics(r).height<.5);
+ el.innerHTML=`<h4>▦ Devor va foydali maydon hisobi</h4><div class="audit-sub">Devor qalinligi: ${Math.round(data.wallThickness*100)} sm · xona o‘lchamlari tashqi gabarit deb olinadi</div><div>Taxminiy foydali xona maydoni: <b>${fmt(total)} m²</b> / tashqi xonalar maydoni ${fmt(gross)} m²</div>`+
+ data.rooms.map(r=>`<div class="audit-issue">${esc(r.name)}: ${fmt(innerMetrics(r).width)} × ${fmt(innerMetrics(r).height)} m = <b>${fmt(innerMetrics(r).area)} m²</b></div>`).join('')+
+ (bad.length?`<div class="audit-bad">Juda kichik ichki o‘lcham: ${bad.map(r=>esc(r.name)).join(', ')}</div>`:'')+
+ `<div class="audit-sub">Taxminiy hisob: umumiy devorlar takror hisoblanishi mumkin; konstruktiv loyiha emas.</div>`;
+}
+function thickWallMarkup(){
+ const t=clamp(Number(data.wallThickness)||.2,.1,.6),s=view.s,ox=view.ox,oy=view.oy;
+ let out=`<rect x="${ox}" y="${oy}" width="${data.w*s}" height="${data.h*s}" stroke="#334155" stroke-width="${t*s}" fill="none" pointer-events="none"/>`;
+ for(const r of data.rooms){
+  const x=ox+r.x*s,y=oy+r.y*s,w=r.w*s,h=r.h*s;
+  out+=`<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="none" stroke="#475569" stroke-opacity=".7" stroke-width="${t*s}" pointer-events="none"/>`;
+ }
+ return out;
+}
+$('wallView').onclick=()=>{thickWallsVisible=!thickWallsVisible;$('wallView').classList.toggle('active',thickWallsVisible);draw()};
+// This produces a suggested single door per non-locked room reached by the
+// free-space route, not a certification of real-world door access.
+$('routeDoors').onclick=()=>{return; /* Avtomatik eshik taklifi o‘chirilgan */
+ const result=findRoutes();let count=0,skipped=[];
+ remember();
+ for(const item of result.paths){
+  const r=data.rooms.find(x=>x.name===item.name&&!x.locked);
+  if(!r){skipped.push(item.name);continue}
+  const last=item.path[item.path.length-1];const side=item.side;
+  const frac=side==='n'||side==='s'?(last.x-r.x)/r.w:(last.y-r.y)/r.h;
+  if(!Number.isFinite(frac)||frac<.12||frac>.88){skipped.push(r.name);continue}
+  r.doorWall=side;r.doorPos=Math.round(clamp(frac*100,10,90)/5)*5;r.doors=Math.max(1,r.doors||0);count++;
+ }
+ refresh();updateRoutes();
+ $('status').textContent=`${count} ta eshik taklif qilindi; eshik ochilishini alohida tekshiring`;
+ $('routePanel').insertAdjacentHTML('beforeend',`<div class="audit-sub">Eshik takliflari: ${count} ta · joylashtirilmagan: ${result.missing.length+skipped.length} ta. Bu faqat geometrik taklif, o‘tish kafolati emas.</div>`);
+};
+const originalDrawV07=draw;
+draw=function(){originalDrawV07();if(thickWallsVisible)$('drawing').insertAdjacentHTML('beforeend',thickWallMarkup());renderWallAccounting()};
+
+
+// Poydevor sxemasi - faqat devor markaz chiziqlarining konseptual rejasi.
+const fModal=$('foundationModal');
+function foundationSegments(){
+ const segments=[];
+ const add=(x1,y1,x2,y2)=>{
+  x1=Math.round(x1*10)/10;y1=Math.round(y1*10)/10;x2=Math.round(x2*10)/10;y2=Math.round(y2*10)/10;
+  if(Math.abs(x1-x2)+Math.abs(y1-y2)<.001)return;
+  segments.push({x1,y1,x2,y2});
+ };
+ add(0,0,data.w,0);add(data.w,0,data.w,data.h);add(data.w,data.h,0,data.h);add(0,data.h,0,0);
+ for(const r of data.rooms){
+  if(r.x<0||r.y<0||r.x+r.w>data.w+.001||r.y+r.h>data.h+.001)continue;
+  add(r.x,r.y,r.x+r.w,r.y);add(r.x+r.w,r.y,r.x+r.w,r.y+r.h);
+  add(r.x+r.w,r.y+r.h,r.x,r.y+r.h);add(r.x,r.y+r.h,r.x,r.y);
+ }
+ // Union collinear overlapping segments without counting shared walls twice.
+ const groups=new Map();
+ for(const s of segments){const hor=Math.abs(s.y1-s.y2)<.001;
+  const key=(hor?'H':'V')+':' +(hor?s.y1:s.x1).toFixed(1);
+  const a=hor?Math.min(s.x1,s.x2):Math.min(s.y1,s.y2);
+  const b=hor?Math.max(s.x1,s.x2):Math.max(s.y1,s.y2);
+  if(!groups.has(key))groups.set(key,[]);groups.get(key).push([a,b]);
+ }
+ const result=[];
+ for(const [key,values] of groups){values.sort((a,b)=>a[0]-b[0]);const merged=[];
+  for(const [a,b] of values){const last=merged[merged.length-1];if(last&&a<=last[1]+.001)last[1]=Math.max(last[1],b);else merged.push([a,b]);}
+  const hor=key[0]==='H',v=Number(key.slice(2));for(const [a,b] of merged)result.push(hor?{x1:a,y1:v,x2:b,y2:v}:{x1:v,y1:a,x2:v,y2:b});
+ }
+ return result;
+}
+function foundationSvg(){
+ const seg=foundationSegments(),p=50,scale=Math.min(32,630/Math.max(data.w,1),410/Math.max(data.h,1));
+ const width=data.w*scale+2*p,height=data.h*scale+2*p;
+ const line=seg.map(s=>`<line x1="${p+s.x1*scale}" y1="${p+s.y1*scale}" x2="${p+s.x2*scale}" y2="${p+s.y2*scale}" stroke="#1d4ed8" stroke-width="3" stroke-linecap="round"/>`).join('');
+ const lab=data.rooms.filter(r=>r.x>=0&&r.y>=0&&r.x+r.w<=data.w&&r.y+r.h<=data.h).map(r=>`<text x="${p+(r.x+r.w/2)*scale}" y="${p+(r.y+r.h/2)*scale}" font-size="11" text-anchor="middle" fill="#475569">${esc(r.name)}</text>`).join('');
+ return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" aria-label="Poydevor o‘qlari"><rect width="100%" height="100%" fill="#f8fafc"/>${line}${lab}<text x="${p+data.w*scale/2}" y="24" text-anchor="middle" font-size="13" fill="#0f172a">${fmt(data.w)} m</text><text x="14" y="${p+data.h*scale/2}" font-size="13" fill="#0f172a" transform="rotate(-90 14 ${p+data.h*scale/2})" text-anchor="middle">${fmt(data.h)} m</text></svg>`;
+}
+function showFoundation(){
+ $('foundationPreview').innerHTML=foundationSvg();
+ const ss=foundationSegments(),len=ss.reduce((v,s)=>v+Math.hypot(s.x2-s.x1,s.y2-s.y1),0);
+ const invalid=data.rooms.filter(r=>r.x<0||r.y<0||r.x+r.w>data.w+.001||r.y+r.h>data.h+.001);
+ $('foundationStats').textContent=`Bino: ${fmt(data.w)} × ${fmt(data.h)} m · ${fmt(data.w*data.h)} m² · Devorga oid sxema chiziqlari: ${fmt(len)} m${invalid.length?' · Chegaradan tashqaridagi xonalar kiritilmadi: '+invalid.length+' ta':''}`;
+ fModal.classList.remove('hidden');
+}
+$('foundationBtn').onclick=showFoundation;$('foundationClose').onclick=()=>fModal.classList.add('hidden');
+fModal.addEventListener('click',e=>{if(e.target===fModal)fModal.classList.add('hidden')});
+$('foundationRefresh').onclick=showFoundation;
+// Offline PDF writer: vector segments + dimensions, no network or third-party dependencies.
+function foundationPDF(){
+ const segments=foundationSegments();const pw=842,ph=595,margin=72,sc=Math.min(630/Math.max(data.w,.1),385/Math.max(data.h,.1));
+ const x0=100,y0=90,commands=[];
+ const txt=(x,y,t,size=11)=>{const plain=String(t).normalize('NFKD').replace(/[^\x20-\x7e]/g,'?').replace(/[\\()]/g,m=>'\\'+m);commands.push(`BT /F1 ${size} Tf ${x.toFixed(2)} ${y.toFixed(2)} Td (${plain}) Tj ET`)};
+ txt(60,557,'BEK LOYIHA - POYDEVOR SXEMASI (DASTLABKI)',16);
+ txt(60,533,`Bino: ${data.w.toFixed(1)} x ${data.h.toFixed(1)} m, maydon: ${(data.w*data.h).toFixed(1)} m2`,11);
+ commands.push('0.12 0.32 0.72 RG 1.8 w');
+ for(const s of segments){const X=n=>x0+n*sc,Y=n=>y0+(data.h-n)*sc;commands.push(`${X(s.x1).toFixed(2)} ${Y(s.y1).toFixed(2)} m ${X(s.x2).toFixed(2)} ${Y(s.y2).toFixed(2)} l S`)}
+ commands.push('0 0 0 rg');
+ txt(x0+data.w*sc/2-25,y0+data.h*sc+14,`${data.w.toFixed(1)} m`,10);
+ txt(43,y0+data.h*sc/2,`${data.h.toFixed(1)} m`,10);
+ const len=segments.reduce((a,s)=>a+Math.hypot(s.x2-s.x1,s.y2-s.y1),0);
+ txt(60,67,`Sxema chiziqlari (takrorlar birlashtirilgan): ${len.toFixed(1)} m`,10);
+ txt(60,49,'DIQQAT: Geologiya va konstruktor hisobisiz qurilish uchun foydalanmang.',10);
+ txt(60,33,'Poydevor turi, eni, chuqurligi, armatura va beton belgilanmagan.',9);
+ const stream=commands.join('\n')+'\n';
+ const objects=['<< /Type /Catalog /Pages 2 0 R >>','<< /Type /Pages /Kids [3 0 R] /Count 1 >>',`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pw} ${ph}] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>`,'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>',`<< /Length ${stream.length} >>\nstream\n${stream}endstream`];
+ let pdf='%PDF-1.4\n',offset=[0];for(let i=0;i<objects.length;i++){offset.push(pdf.length);pdf+=`${i+1} 0 obj\n${objects[i]}\nendobj\n`};const xref=pdf.length;
+ pdf+=`xref\n0 ${objects.length+1}\n0000000000 65535 f \n`+offset.slice(1).map(x=>String(x).padStart(10,'0')+' 00000 n \n').join('');pdf+=`trailer\n<< /Size ${objects.length+1} /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF`;
+ const blob=new Blob([new TextEncoder().encode(pdf)],{type:'application/pdf'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='Bek_loyiha_poydevor_rejasi.pdf';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+}
+$('foundationPdf').onclick=foundationPDF;
+
+variantsUI();fit();refresh();})();
+</script></body></html>
